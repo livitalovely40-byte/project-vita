@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kartu Fakta Menarik — Teknologi</title>
+  <style>
+    body{background-color: aliceblue;}
+    img.i{width: 450px; height: 300px;box-shadow: 10px 10px 5px rgb(164, 202, 233);border-radius: 10%;}
+    img.i:hover{width: 480px; height: 320px;}
+    div.card-fakta{width: 800px;height: 650px;background-color: rgb(95, 155, 201);text-align:center;border-radius: 10%;}
+    li{color: azure;}
+    h1{color: azure;}
+    h2{color: azure;}
+    
+  </style>
+</head>
+<body>
+    <body style="background-image: url(walp.dolp.jpg)">
+        <center>
+  <div class="card-fakta">
+    <h1>Fakta Menarik tentang Lumba-Lumba</h1>
+    <img id="factImage" src="lumba.lcm.jpg"class="i" />
+    <div class="content">
+      <h2 class="subtitle">Tahukah kamu fakta-fakta unik ini?</h2>
+
+      <ul class="facts-list" id="factList">
+        <li>Penampilan fisik lumba-lumba berbeda dari kebanyakan mamalia lainnya.</li>
+        <li>Lumba-lumba hidup diseluruh dunia.</li>
+        <li>Lumba-lumba kembar sungguh langka.</li>
+        <li>lumba-lumba hidup berkelompok.</li>
+      </ul>
+
+      <button class="btn-next" id="nextFact">🔁 Fakta Selanjutnya</button>
+
+      <div class="card-footer">© 2025 | Fakta Lumba-Lumba • Livita Lovely</div>
+    </div>
+  </div>
+
+  <script>
+    const factData = [
+      {
+        image: "dolphin.jpg",
+        facts: [
+          "Lumba-lumba mengandung merkuri berbahaya yang bisa meracuni jika dimakan.",
+          "Lumba-lumba terancam punah.",
+          "Lumba-lumba bisa hidup lebih lama tetapi harus menghindari penyakit."
+         
+        ]
+      },
+      {
+        image: "dolp.jpg",
+        facts: [
+          "Lumba-lumba bekerja keras untuk bernafas.",
+          "Lumba-lumba menjadi mamalia tercerdas selain manusia.",
+          "Lumba-lumba sangat berbelas kasih. menyelamatkan manusia dan menyelamatkan lumba lumba lain yang sekarat."
+        ]
+      },
+      {
+        image: "lumbs.jpg",
+        facts: [
+          "Lumba-lumba juga dapat melihat dengan suaranya.",
+          "Lumba-lumba berkomunikasi dengan baik.",
+          "Lumba-lumba bisa tenggelam."
+        ]
+      },
+      {
+        image: "lumbi.jpg",
+        facts: [
+          "Lumba- lumba tidak pernah mengunyah makanan.",
+          "Lumba- lumba dapat mengenali temannya dari rasa urine.",
+          "Saat Lumba-lumba tertidur, terdapat satu sisi otak yang masih aktif untuk menjaga kesadaran yang cukup dari ancaman predator."
+        ]
+      }
+    ];
+
+    const factList = document.getElementById("factList");
+    const factImage = document.getElementById("factImage");
+    const nextBtn = document.getElementById("nextFact");
+
+    nextBtn.addEventListener("click", () => {
+      factList.classList.add("fade-out");
+      setTimeout(() => {
+        const randomFact = factData[Math.floor(Math.random() * factData.length)];
+        factImage.style.opacity = 0;
+
+        setTimeout(() => {
+          factImage.src = randomFact.image;
+          factImage.style.opacity = 1;
+        }, 400);
+
+        factList.innerHTML = randomFact.facts.map(f => `<li>${f}</li>`).join("");
+        factList.classList.remove("fade-out");
+      }, 500);
+    });
+  </script>
+</center>
+</body>
+</html>
+
+
